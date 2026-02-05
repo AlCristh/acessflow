@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: accessflow-db
+    environment:
+      POSTGRES_DB: accessflow
+      POSTGRES_USER: accessflow
+      POSTGRES_PASSWORD: accessflow
+    ports:
+      - "5433:5432"
+    volumes:
+      - accessflow_pgdata:/var/lib/postgresql/data
+
+volumes:
+  accessflow_pgdata:
